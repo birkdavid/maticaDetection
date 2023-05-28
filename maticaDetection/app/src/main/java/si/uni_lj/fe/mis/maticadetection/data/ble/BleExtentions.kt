@@ -7,13 +7,7 @@ import android.util.Log
 import java.util.Locale
 
 
-
-//
 const val CCCD_DESCRIPTOR_UUID = "00002902-0000-1000-8000-00805F9B34FB"
-//pazi tle je treba se ugotovit kater uuid dat not, oni so mel druga dva v arduino kodi
-
-
-
 
 fun BluetoothGatt.printGattTable() {
     if (services.isEmpty()) {

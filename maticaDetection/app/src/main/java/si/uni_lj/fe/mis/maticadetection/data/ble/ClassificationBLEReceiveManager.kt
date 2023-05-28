@@ -30,8 +30,8 @@ class ClassificationBLEReceiveManager @Inject constructor(
     private val context: Context
 ) : ClassificationReceiveManager {
 
-    private val DEVICE_NAME = "PredatorDetection"
-    private val CLASSIFICATION_SERVICE_UIID = "8c4d031e-f8db-11ed-be56-0242ac120002"  //sm dal nasga
+    private val DEVICE_NAME = "maticaDetection"
+    private val CLASSIFICATION_SERVICE_UIID = "8c4d031e-f8db-11ed-be56-0242ac120002"
     private val CLASSIFICATION_CHARACTERISTICS_UUID = "91d902d8-f8db-11ed-be56-0242ac120002"
 
     override val data: MutableSharedFlow<Resource<ClassificationResult>> = MutableSharedFlow()
@@ -148,20 +148,12 @@ class ClassificationBLEReceiveManager @Inject constructor(
             with(characteristic){
                 when(uuid){
 
-
-
-                    //tle bo treba spremenit
-
-
                     UUID.fromString(CLASSIFICATION_CHARACTERISTICS_UUID) -> {
                         val receivedValue = value[0].toInt()
-                        var classification:String = "Nothing detected"
+                        var classification:String = "No queen bee detected"
                         if (receivedValue == 1){
-                            classification = "fox"
-                            notificationService.showNotification("fox")
-                        } else if (receivedValue == 2){
-                            classification = "wolf"
-                            notificationService.showNotification("wolf")
+                            classification = "Queen bee detected"
+                            notificationService.showNotification("Queen bee detected")
                         }
                         val classificationResult = ClassificationResult(
                             classification,

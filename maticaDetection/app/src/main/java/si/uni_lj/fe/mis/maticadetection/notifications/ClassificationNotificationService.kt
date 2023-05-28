@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import si.uni_lj.fe.mis.maticadetection.MainActivity
+import si.uni_lj.fe.mis.maticadetection.R
 
 class ClassificationNotificationService(private val context: Context) {
 
@@ -22,10 +23,10 @@ class ClassificationNotificationService(private val context: Context) {
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) PendingIntent.FLAG_IMMUTABLE else 0
         )
         val notification = NotificationCompat.Builder(context, CLASSIFICATION_CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_android_black_24dp)   //neki jebe idk kaj-GPT
+            .setSmallIcon(R.drawable.ic_android_black_24dp)
             .setContentTitle("Matica classification")
 
-            .setContentText("There is $animal on your property")  //edit
+            .setContentText("Queen bee status: $animal")  //detected oz. not detected
 
             .setContentIntent(activityPendingIntent)
             .setAutoCancel(true)
